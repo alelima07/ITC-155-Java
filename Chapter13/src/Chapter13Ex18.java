@@ -37,13 +37,33 @@
  */
 
 
-/* The following class is a modified version of the selection sort algorithm that selects the 
- * largest element each time and moves it to the end of the array, rather than selecting the 
- * smallest element and moving it to the beginning.
- * Will this sort be faster than the standard selection sort, and what will the complexity class
- * (big-Oh) be? The complexity class of the modified version would O(N^2), which isn't any faster
- * than the standard. */
+/* Write a modified version of the selection sort algorithm that selects
+*   the largest element each time and moves it to the end of the array,
+*   rather than selecting the smallest element and moving it to the
+*   beginning.
+* Will this algorithm be faster than the standard selection sort?
+* What will its complexity class (big-Oh) be?
+*/
 
 public class Chapter13Ex18 {
-
+	public void selectionSort(int[] arr) {
+		for(int i = arr.length - 1; i > 0; i--) {
+			int largest = i;
+			for(int j = i - 1; j >= 0; j--) {
+				if(arr[largest] < arr[j]) {
+					largest = j;
+				}
+			}
+			
+			if(largest != i) {
+				swap(arr, i, largest);	
+			}	
+		}
+	}
+	
+	private static void swap(int[] arr, int i, int largest) {
+		int temp = arr[i];
+		arr[i] = arr[largest];
+		arr[largest] = temp;
+	}
 }
