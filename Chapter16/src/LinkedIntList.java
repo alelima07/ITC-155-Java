@@ -19,7 +19,7 @@ public class LinkedIntList {
 		front = null;
 	}
 	
-}
+
 public void add(int value) {
 	if(front == null) {
 		front = new ListNode(value);
